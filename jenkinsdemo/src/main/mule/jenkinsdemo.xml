@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<configuration-properties doc:name="Configuration properties" doc:id="263c14a6-e486-4c31-b51f-53dd229995f1" file="${env}/${env}.properties" />
+	<flow name="jenkinsdemoFlow" doc:id="1de9a4e0-25e6-4aaa-b353-76859b1733c2" >
+		<scheduler doc:name="Scheduler" doc:id="d63c1ecd-3829-4220-9446-24daa1fb6853" >
+			<scheduling-strategy >
+				<fixed-frequency frequency="10" timeUnit="SECONDS"/>
+			</scheduling-strategy>
+		</scheduler>
+		<logger level="INFO" doc:name="Logger" doc:id="c96729ff-d676-41ed-8a0d-be72bc44ea50" message="My Jenkins Project ::: Started - #[now()]"/>
+		<logger level="INFO" doc:name="Logger" doc:id="fc95d5de-7233-42fe-8bad-f17fcae2fbdc" message="This is my ${environment} Environment"/>
+	</flow>
+</mule>
